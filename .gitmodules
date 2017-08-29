@@ -1,0 +1,8 @@
+[submodule "vim/SpaceVim"]
+	path = vim/SpaceVim
+	url = https://github.com/SpaceVim/SpaceVim.git
+	branch = dev
+[submodule "shell/.oh-my-zsh"]
+	path = shell/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master

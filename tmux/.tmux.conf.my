@@ -1,0 +1,61 @@
+# 基础设置
+set -g default-terminal "screen-256color"
+set -g display-time 3000
+set -g escape-time 0
+set -g history-limit 65536
+set -g base-index 1
+set -g pane-base-index 1
+
+# 前缀绑定(Ctrl+a)
+# set -g prefix ^a
+# unbind ^b
+# bind a send-prefix
+
+# 分割窗口
+unbind '"'
+bind - splitw -v
+unbind %
+bind | splitw -h
+
+# 选中窗口
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# 切换到当前目录
+bind '"' split-window -c '#{pane_current_path}'
+bind '%' split-window -h -c '#{pane_current_path}'
+
+# 启用鼠标
+set -g mouse on
+
+# copy-mode 将快捷键设置为 vi 模式
+setw -g mode-keys vi
+
+# 设置窗口尺寸
+bind L resize-pane -L 10
+bind R resize-pane -R 10
+bind K resize-pane -U 5
+bind J resize-pane -D 5
+
+# 更新配置文件
+bind r source-file ~/.tmux.conf \; display-message "已更新"
+
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+# Tmux Plugin Manager
+# Tmux Resurrent
+set -g @plugin 'tmux-plugins/tmux-resurrent'
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other example
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bootom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
